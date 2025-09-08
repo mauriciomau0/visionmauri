@@ -1203,6 +1203,13 @@ footer {
     max-height: 85vh;
     overflow-y: auto;
   }
+
+  .work-style-image {
+    float: none;
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 200px;
+  }
   
   .nav-links.active {
     display: flex;
