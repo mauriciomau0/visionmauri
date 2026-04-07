@@ -44,6 +44,64 @@
           <!-- Project 1 -->
           <div class="project-card">
             <div class="project-header">
+              <h3>Gait Classification Using 2D Pose Estimation and Explainable AI</h3>
+            </div>
+            <div class="project-details">
+              <div class="project-info">
+                <div class="info-item">
+                  <div class="label">Year:</div>
+                  <div class="value">2025</div>
+                </div>
+                <div class="info-item">
+                  <div class="label">Technology:</div>
+                  <div class="value">Sports2D, Random Forest, SHAP</div>
+                </div>
+                <div class="info-item">
+                  <div class="label">Population:</div>
+                  <div class="value">Older adults (n=13) and transfemoral amputees (n=3)</div>
+                </div>
+                <div class="info-item">
+                  <div class="label">Framework:</div>
+                  <div class="value">Reality-Centric AI (RCAI)</div>
+                </div>
+              </div>
+              <div class="project-description">
+                <p>Developed a machine learning pipeline for gait classification using single-camera 2D pose estimation. Videos from healthy older adults and transfemoral amputees were processed with Sports2D to extract joint angles and marker trajectories. Clinically meaningful asymmetry features were manually engineered from lower-limb kinematics, and a Random Forest classifier with Leave-One-Out Cross-Validation achieved 96.2% accuracy. SHAP values were applied to explain individual predictions. The entire pipeline is framed by the Reality-Centric AI framework, with explicit documentation of data assumptions, confidence zones for clinical decision support, and human-in-the-loop accountability.</p>
+                <h4>Research Highlights:</h4>
+                <ul>
+                  <li>Extracted kinematic asymmetry indices from hip, knee, stride speed, pelvic tilt, and trunk using single-camera video</li>
+                  <li>Achieved 100% precision for amputee detection with 92% recall under LOOCV</li>
+                  <li>Implemented three clinical confidence zones (Green / Yellow / Red) to support — not replace — clinician decision-making</li>
+                  <li>Applied SHAP waterfall plots to explain individual predictions, identifying stride speed asymmetry as the primary biomechanical predictor</li>
+                  <li>Documented model assumptions and limitations explicitly under Pillar 1 of the RCAI framework</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/mauriciomau0/Biomechanics-ML/tree/main" target="_blank" class="project-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                    </svg>
+                    View Repository on GitHub
+                  </a>
+                </div>
+                <h4>Sample Participants:</h4>
+                <p><strong>Healthy older adult:</strong></p>
+                <div class="project-video">
+                  <video width="100%" height="315" controls>
+                    <source src="https://github.com/mauriciomau0/Biomechanics-ML/blob/main/Content/participante_idoso.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <p><strong>Transfemoral amputee:</strong></p>
+                <div class="project-video">
+                  <video width="100%" height="315" controls>
+                    <source src="https://github.com/mauriciomau0/Biomechanics-ML/blob/main/Content/participante_amputado.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-header">
               <h3>Gait Stability Prediction Using Computer Vision and Synthetic Data</h3>
             </div>
             <div class="project-details">
