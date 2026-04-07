@@ -50,7 +50,7 @@
               <div class="project-info">
                 <div class="info-item">
                   <div class="label">Year:</div>
-                  <div class="value">2025</div>
+                  <div class="value">2026</div>
                 </div>
                 <div class="info-item">
                   <div class="label">Technology:</div>
@@ -66,13 +66,13 @@
                 </div>
               </div>
               <div class="project-description">
-                <p>Can a classifier tell a healthy older adult from someone with a transfemoral amputation using nothing but smartphone video? That was the question. Sports2D extracted joint angles and marker trajectories from single-camera walking videos. From there, I built asymmetry features by hand — hip and knee range of motion, stride speed, pelvic tilt, trunk — picking variables that a clinician would actually care about. A Random Forest with Leave-One-Out Cross-Validation hit 96.2% accuracy. SHAP explains each prediction individually, so it's possible to see which variable moved the needle for a specific patient. The model's assumptions and failure modes are documented, not footnoted.</p>
+                <p>Can a classifier tell a healthy older adult from someone with a transfemoral amputation using nothing but smartphone video? That was the question. Sports2D extracted joint angles and marker trajectories from single-camera walking videos. From there, I built asymmetry features by hand — hip and knee range of motion, stride speed, pelvic tilt, trunk — picking variables that a clinician would actually care about. A Random Forest model hit 96.2% accuracy. SHAP explains the predictions, so you can see which variable moved the needle for a specific patient. The model's assumptions and failure modes are documented rather than footnoted.</p>
                 <h4>Research Highlights:</h4>
                 <ul>
                   <li>Asymmetry indices extracted from hip, knee, stride speed, pelvic tilt, and trunk — no automatic feature generation</li>
-                  <li>100% precision on amputee detection; 92% recall under LOOCV</li>
+                  <li>100% precision on amputee detection; 92% recall</li>
                   <li>Three clinical confidence zones (Green / Yellow / Red) — the model flags uncertainty, the clinician decides</li>
-                  <li>SHAP waterfall plots per participant; stride speed asymmetry was the strongest predictor</li>
+                  <li>SHAP plots per participant; stride speed asymmetry was the strongest predictor</li>
                   <li>Data assumptions and single-camera limitations documented under Pillar 1 of the RCAI framework</li>
                 </ul>
                 <div class="project-links">
@@ -84,16 +84,14 @@
                   </a>
                 </div>
                 <h4>Sample Participants:</h4>
-                <p><strong>Healthy older adult:</strong></p>
+                <p><strong>Healthy older adult</strong></p>
                 <div class="project-video">
-                  <video width="100%" height="315" controls>
-                    <source src="https://youtube.com/shorts/GETcDiRMzG0?feature=share" type="video/mp4">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/GETcDiRMzG0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   </video>
                 </div>
-                <p><strong>Transfemoral amputee:</strong></p>
+                <p><strong>Transfemoral amputee</strong></p>
                 <div class="project-video">
-                  <video width="100%" height="315" controls>
-                    <source src="https://youtube.com/shorts/n5KC5j9-6SM?feature=share" type="video/mp4">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/n5KC5j9-6SM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   </video>
                 </div>
               </div>
