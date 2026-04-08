@@ -125,31 +125,45 @@ a:hover {
   text-decoration: underline;
 }
 
-.tools-table table {
+.tools-table {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  font-family: 'Inter', sans-serif;
+  margin-top: 25px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 15px;
 }
 
-.tools-table th,
-.tools-table td {
-  border: 1px solid #e5e7eb;
-  padding: 12px 16px;
+.tools-table thead th {
   text-align: left;
-}
-
-.tools-table th {
-  background-color: #f9fafb;
   font-weight: 600;
+  padding: 14px 16px;
+  border-bottom: 2px solid #e5e7eb;
+  color: #111827;
 }
 
-.tools-table tr:nth-child(even) {
+.tools-table tbody td {
+  padding: 12px 16px;
+  color: #374151;
+}
+
+.tools-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.2s ease;
+}
+
+.tools-table tbody tr:hover {
   background-color: #f9fafb;
 }
 
-.tools-table tr:hover {
-  background-color: #f1f5f9;
+/* subtle column separation */
+.tools-table td + td,
+.tools-table th + th {
+  border-left: 1px solid #f1f5f9;
+}
+
+/* make it breathe more like your layout */
+.tools-container {
+  margin-top: 40px;
 }
 
 /* Navigation */
