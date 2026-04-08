@@ -11,7 +11,7 @@
   --dark-grey: #616161;
   --link-color: #2962ff;
   --link-hover: #0039cb;
-  --success-color: #0039cb; /* Fixed double semicolon */
+  --success-color: #0039cb;
   --error-color: #f44336;
   --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -41,9 +41,7 @@ body {
   flex-direction: column;
 }
 
-main {
-  flex: 1;
-}
+main { flex: 1; }
 
 img {
   max-width: 100%;
@@ -66,10 +64,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
-h1 {
-  font-size: 2.5rem;
-  font-weight: 500;
-}
+h1 { font-size: 2.5rem; font-weight: 500; }
 
 h2 {
   font-size: 2rem;
@@ -88,23 +83,10 @@ h2::after {
   background-color: var(--accent-color);
 }
 
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1.25rem;
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-strong {
-  font-weight: 600;
-}
-
-ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1.5rem;
-}
+h3 { font-size: 1.5rem; margin-bottom: 1.25rem; }
+p { margin-bottom: 1rem; }
+strong { font-weight: 600; }
+ul { margin-left: 1.5rem; margin-bottom: 1.5rem; }
 
 a {
   color: var(--text-color);
@@ -112,9 +94,7 @@ a {
   transition: color var(--transition-speed) ease;
 }
 
-a:hover {
-  color: var(--link-hover);
-}
+a:hover { color: var(--link-hover); }
 
 /* =========================================
    3. NAVIGATION
@@ -126,7 +106,6 @@ header {
   box-shadow: var(--shadow-md);
   z-index: 1000;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .navbar {
@@ -142,19 +121,13 @@ header {
   margin: 0;
 }
 
-.nav-links li {
-  margin-left: 2rem;
-}
+.nav-links li { margin-left: 2rem; }
 
 .nav-links a {
   color: var(--text-color);
   font-weight: 500;
   font-size: 0.9rem;
   position: relative;
-}
-
-.nav-links a.active {
-  font-weight: 700;
 }
 
 .nav-links a.active::after {
@@ -200,6 +173,13 @@ header {
   text-align: center;
 }
 
+/* Sizing and positioning for the profile/icon group */
+.profile-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
 .profile-image {
   width: 160px;
   height: 160px;
@@ -209,9 +189,27 @@ header {
   box-shadow: var(--shadow-md);
 }
 
-.about {
-  padding: 5rem 0;
+.mission-icon {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  background-color: var(--primary-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
 }
+
+.mission-icon img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.about { padding: 5rem 0; }
 
 .work-style-image {
   float: right;
@@ -237,15 +235,9 @@ header {
   border-top: 1px solid var(--light-grey);
 }
 
-.tools-title {
-  /* Inherits H2 styles but adds spacing */
-  margin-bottom: 10px;
-}
-
 .tools-intro {
   color: var(--dark-grey);
   margin-bottom: 30px;
-  font-size: 1rem;
 }
 
 .tools-grid {
@@ -258,25 +250,19 @@ header {
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 15px;
-  color: var(--text-color);
   min-height: 2.5em; 
 }
 
-.tools-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+.tools-column ul { list-style: none; padding: 0; margin: 0; }
 
 .tools-column ul li {
   font-size: 0.95rem;
   color: var(--dark-grey);
   margin-bottom: 8px;
-  line-height: 1.4;
 }
 
 /* =========================================
-   6. CARDS (Experience, Projects, Awards)
+   6. CARDS & FOOTER
    ========================================= */
 .experience-card, .project-card, .award-card, .education-card {
   background-color: var(--primary-color);
@@ -286,24 +272,6 @@ header {
   transition: transform var(--transition-speed);
 }
 
-.experience-card:hover, .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
-}
-
-.experience-header, .project-header, .award-header {
-  padding: 1.5rem;
-  background-color: var(--secondary-color);
-  border-bottom: 1px solid var(--light-grey);
-}
-
-.experience-body, .project-details, .award-body {
-  padding: 1.5rem;
-}
-
-/* =========================================
-   7. FOOTER
-   ========================================= */
 footer {
   background-color: var(--accent-color);
   color: white;
@@ -317,11 +285,6 @@ footer {
   align-items: center;
 }
 
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
 .footer-icon {
   width: 24px;
   height: 24px;
@@ -329,43 +292,22 @@ footer {
 }
 
 /* =========================================
-   8. RESPONSIVE QUERIES
+   7. RESPONSIVE QUERIES
    ========================================= */
-
-/* Tablet & Smaller Desktop */
 @media (max-width: 992px) {
-  .tools-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .tools-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 950px) {
-  .nav-links {
-    display: none; /* Logic for JS toggle */
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background: white;
-    padding: 1rem 0;
-  }
-  
+  .nav-links { display: none; position: fixed; top: 70px; left: 0; width: 100%; flex-direction: column; background: white; padding: 1rem 0; }
   .nav-links.active { display: flex; }
   .hamburger { display: flex; }
   .work-style-image { float: none; margin: 0 auto 20px; display: block; }
 }
 
-/* Mobile Devices */
 @media (max-width: 768px) {
-  .container { width: 95%; }
-  .footer-content { flex-direction: column; gap: 1.5rem; }
   .tools-grid { grid-template-columns: 1fr; }
   .tools-column h3 { min-height: auto; }
-  
-  .info-item, .event-detail, .experience-detail {
-    flex-direction: column;
-  }
 }
 
 @media (max-width: 480px) {
