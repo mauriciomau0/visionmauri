@@ -1189,19 +1189,19 @@ footer {
 /* Responsive Styles */
 @media (max-width: 950px) {
   .nav-links {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
-    display: none;
-    z-index: 999;
-    max-height: 85vh;
-    overflow-y: auto;
-  }
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    display: none;
+    z-index: 999;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
 
   .work-style-image {
     float: none;
@@ -1367,63 +1367,98 @@ footer {
   .certification-grid {
     grid-template-columns: 1fr;
   }
-  /* Tools Container & Spacing */
 .tools-container {
-  padding-top: 40px; /* Reduced to avoid the "new section" look */
-  margin-top: 20px;
-  border-top: 1px solid #eee; /* Light separator instead of a huge gap */
+  padding-top: 40px;
+  margin-top: 20px;
+  border-top: 1px solid var(--light-grey);
 }
 
 .tools-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  position: relative;
-  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
 }
 
-/* The small underline from your image */
 .tools-title::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 3px;
-  background: #333;
-  margin-top: 8px;
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent-color);
+  margin-top: 8px;
 }
 
 .tools-intro {
-  color: #666;
-  margin-bottom: 30px;
-  font-size: 1rem;
+  color: var(--dark-grey);
+  margin-bottom: 30px;
+  font-size: 1rem;
 }
 
-/* The Grid Layout */
 .tools-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+  gap: 30px;
 }
 
 .tools-column h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: #222;
-  min-height: 2.5em; /* Keeps headers aligned */
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--text-color);
+  min-height: 2.5em; 
 }
 
 .tools-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .tools-column ul li {
-  font-size: 0.95rem;
-  color: #444;
-  margin-bottom: 8px;
-  line-height: 1.4;
+  font-size: 0.95rem;
+  color: var(--dark-grey);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* --- TOOLS RESPONSIVENESS --- */
+
+@media (max-width: 992px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .tools-grid {
+    grid-template-columns: 1fr; /* 1 column on phones */
+  }
+  .tools-column h3 {
+    min-height: auto;
+  }
+}
+
+/* --- MISC UI ELEMENTS --- */
+
+.back-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.back-button a {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  font-weight: 500;
+}
+
+.back-button a:hover {
+  background-color: var(--light-grey);
 }
 
 /* Responsive: Stack columns on smaller screens */
