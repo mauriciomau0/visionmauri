@@ -1368,6 +1368,80 @@ footer {
   .certification-grid {
     grid-template-columns: 1fr;
   }
+  /* Tools Container & Spacing */
+.tools-container {
+  padding-top: 40px; /* Reduced to avoid the "new section" look */
+  margin-top: 20px;
+  border-top: 1px solid #eee; /* Light separator instead of a huge gap */
+}
+
+.tools-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+/* The small underline from your image */
+.tools-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #333;
+  margin-top: 8px;
+}
+
+.tools-intro {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+/* The Grid Layout */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.tools-column h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #222;
+  min-height: 2.5em; /* Keeps headers aligned */
+}
+
+.tools-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tools-column ul li {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* Responsive: Stack columns on smaller screens */
+@media (max-width: 992px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+  .tools-column h3 {
+    min-height: auto;
+  }
+}
 }
 
 /* Back button on section pages */
