@@ -262,33 +262,62 @@ header {
 }
 
 /* =========================================
-   6. CARDS & FOOTER
+   6. CARDS (Experience, Projects, Awards)
    ========================================= */
-.experience-card, .project-card, .award-card, .education-card {
+.experience-card, 
+.project-card, 
+.award-card, 
+.education-card {
   background-color: var(--primary-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
-  margin-bottom: 2rem;
-  transition: transform var(--transition-speed);
+  margin-bottom: 2.5rem;
+  overflow: hidden; /* Ensures header corners stay rounded */
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  border: 1px solid var(--light-grey);
 }
 
-footer {
-  background-color: var(--accent-color);
-  color: white;
-  padding: 2rem 0;
-  margin-top: 3rem;
+/* The "Lift" effect on hover */
+.experience-card:hover, 
+.project-card:hover, 
+.award-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
 
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Styled Header for the Cards */
+.experience-header, 
+.project-header, 
+.award-header {
+  padding: 1.5rem;
+  background-color: var(--secondary-color);
+  border-bottom: 1px solid var(--light-grey);
 }
 
-.footer-icon {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
+.experience-header h3, 
+.project-header h3 {
+  margin-bottom: 0.25rem;
+  color: var(--accent-color);
+}
+
+/* The Content Area of the Cards */
+.experience-body, 
+.project-details, 
+.award-body {
+  padding: 1.5rem;
+}
+
+/* Bullet points inside cards */
+.experience-body ul, 
+.project-details ul {
+  margin-top: 1rem;
+  list-style-type: disc;
+}
+
+.experience-body li, 
+.project-details li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
 }
 
 /* =========================================
