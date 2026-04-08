@@ -558,77 +558,7 @@ header {
   background-color: rgba(244, 67, 54, 0.1);
   color: var(--error-color);
 }
-/* --- Tools Grid Section (Added for About Page) --- */
-.tools-container {
-  margin-top: 3.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--light-grey);
-}
 
-.tools-title {
-  margin-bottom: 0.5rem;
-}
-
-.tools-intro {
-  color: var(--dark-grey);
-  margin-bottom: 2rem;
-}
-
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
-  gap: 2rem;
-}
-
-.tools-column h3 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  color: var(--accent-color);
-  border-bottom: 2px solid var(--secondary-color);
-  padding-bottom: 0.5rem;
-}
-
-.tools-column ul {
-  list-style: none;
-  margin-left: 0;
-}
-
-.tools-column li {
-  font-size: 0.9rem;
-  padding: 0.25rem 0;
-  color: var(--dark-grey);
-}
-
-/* --- Fix for the Profile Badge Icon --- */
-/* Your HTML uses <img> for the icon, so we need to size it properly */
-.mission-icon {
-  position: absolute;
-  bottom: -5px;
-  right: -5px;
-  background-color: white;
-  width: 50px !important;
-  height: 50px !important;
-  border-radius: 50%;
-  padding: 8px; /* Creates the white circle around the flame image */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-sm);
-  object-fit: contain; /* Ensures the flame image doesn't distort */
-}
-
-/* --- Responsive adjustments for the Tools Grid --- */
-@media (max-width: 992px) {
-  .tools-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
-  }
-}
-
-@media (max-width: 600px) {
-  .tools-grid {
-    grid-template-columns: 1fr; /* 1 column for mobile */
-  }
-}
 /* Footer */
 footer {
   background-color: var(--accent-color);
