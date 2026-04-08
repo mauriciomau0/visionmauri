@@ -125,34 +125,70 @@ a:hover {
   text-decoration: underline;
 }
 
-.tools-table {
-  width: 100%;
-  margin-top: 25px;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-size: 15px;
+/* Tools Grid Styles */
+.tools-container {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--light-grey);
 }
 
-.tools-table thead th {
-  text-align: left;
-  font-weight: 600;
-  padding: 14px 16px;
-  border-bottom: 2px solid #e5e7eb;
-  color: #111827;
+.tools-title {
+  margin-bottom: 0.5rem;
 }
 
-.tools-table tbody td {
-  padding: 12px 16px;
-  color: #374151;
+.tools-intro {
+  color: var(--dark-grey);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
 }
 
-.tools-table tbody tr {
-  border-bottom: 1px solid #f1f5f9;
-  transition: background 0.2s ease;
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+  gap: 2rem;
 }
 
-.tools-table tbody tr:hover {
-  background-color: #f9fafb;
+.tools-column h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--accent-color);
+  min-height: 3rem; /* Keeps headers aligned if text wraps */
+  display: flex;
+  align-items: flex-end;
+}
+
+.tools-column ul {
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
+}
+
+.tools-column li {
+  font-size: 0.9rem;
+  padding: 0.4rem 0;
+  color: var(--dark-grey);
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.tools-column li:last-child {
+  border-bottom: none;
+}
+
+/* Responsiveness for the table */
+@media (max-width: 992px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .tools-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+  .tools-column h3 {
+    min-height: auto;
+  }
 }
 
 /* subtle column separation */
