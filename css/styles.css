@@ -367,10 +367,10 @@ header {
 
 .work-style-image {
   float: right;
-  max-width: 250px;
+  max-width: 150px;
   width: 100%;
   height: auto;
-  margin: 0 0 20px 20px;
+  margin: 0 0 10px 10px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
