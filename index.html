@@ -1,151 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mauricio Cordeiro | PhD Researcher & Biomedical Engineer </title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/jpg" href="assets/images/mauricio-profile-favicon.jpg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mauricio Cordeiro | PhD Researcher & Biomedical Engineer</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpg" href="assets/images/mauricio-profile-favicon.jpg">
+<style>
+/* ============================================================
+   INDEX PAGE OVERRIDES — only index.html loads this block.
+   All other pages use css/styles.css without these overrides.
+   ============================================================ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0d0f14;--canvas:#f7f6f2;--accent:#1a56db;--warm:#e8531a;
+  --mid:#5a5e6b;--border:#dddbd5;--card:#fff;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;background:var(--canvas);color:var(--ink);line-height:1.65;overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh}
+main{flex:1}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .4s,box-shadow .4s}
+header.scrolled{background:rgba(247,246,242,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--border)}
+.navbar{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+.nav-links{display:flex;gap:0;list-style:none;margin:0}
+.nav-links li{margin-left:0}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--mid);text-decoration:none;padding:.4rem .85rem;border-radius:4px;transition:color .2s,background .2s;letter-spacing:.01em;position:relative}
+.nav-links a::after{display:none}
+.nav-links a:hover{color:var(--ink);background:rgba(0,0,0,.05)}
+.nav-links a.active{color:var(--accent);font-weight:600}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--ink);overflow:hidden;padding:0}
+#particle-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-grid{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:6rem 2rem 4rem;display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center;width:100%}
+.hero-eyebrow{font-size:.75rem;font-weight:500;letter-spacing:.16em;color:#4a9fff;text-transform:uppercase;margin-bottom:1.25rem;opacity:0;animation:fadeUp .8s .3s forwards}
+.hero-name{font-family:'Syne',sans-serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:800;line-height:1.02;color:#f7f6f2;letter-spacing:-.03em;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .5s forwards}
+.hero-name em{font-style:normal;background:linear-gradient(135deg,#4a9fff 0%,#e8531a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-mission{font-size:1.1rem;font-weight:300;color:rgba(247,246,242,.65);margin-bottom:2.5rem;line-height:1.75;max-width:500px;opacity:0;animation:fadeUp .8s .7s forwards}
+.hero-mission strong{color:#f7f6f2;font-weight:500}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .9s forwards}
+.btn-primary-hero{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#fff;padding:.7rem 1.5rem;border-radius:6px;font-size:.88rem;font-weight:500;text-decoration:none;transition:background .2s,transform .2s}
+.btn-primary-hero:hover{background:#1343b8;transform:translateY(-2px);color:#fff}
+.btn-ghost-hero{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(247,246,242,.22);color:rgba(247,246,242,.75);padding:.7rem 1.5rem;border-radius:6px;font-size:.88rem;font-weight:400;text-decoration:none;transition:border-color .2s,color .2s}
+.btn-ghost-hero:hover{border-color:rgba(247,246,242,.55);color:#f7f6f2}
+
+/* HERO CARD */
+.hero-card{opacity:0;animation:fadeRight .9s .6s forwards;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.75rem;backdrop-filter:blur(8px)}
+.profile-container{position:relative;display:inline-block;margin-bottom:1.4rem}
+.profile-image{width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.15);display:block}
+.status-dot{position:absolute;bottom:6px;right:2px;width:13px;height:13px;border-radius:50%;background:#22c55e;border:2.5px solid var(--ink);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:.7}}
+.card-name{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:#f7f6f2;margin-bottom:.2rem}
+.card-role{font-size:.78rem;color:rgba(247,246,242,.45);margin-bottom:1.25rem;line-height:1.55}
+.card-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.4rem}
+.card-tag{font-size:.7rem;font-weight:500;padding:.22rem .65rem;border-radius:999px;border:1px solid rgba(255,255,255,.15);color:rgba(247,246,242,.6);letter-spacing:.03em}
+.tw-label{font-size:.7rem;color:rgba(247,246,242,.38);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+.typewriter-text{font-size:.88rem;color:#4a9fff;font-weight:500}
+.cursor{animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* SCROLL HINT */
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(247,246,242,.28);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;z-index:2;opacity:0;animation:fadeUp 1s 1.4s forwards}
+.scroll-arrow{width:18px;height:18px;border-right:1.5px solid rgba(247,246,242,.28);border-bottom:1.5px solid rgba(247,246,242,.28);transform:rotate(45deg);animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(4px)}}
+
+/* ABOUT */
+.about{background:var(--canvas);padding:7rem 0 5rem}
+.about .container{max-width:1200px;width:90%;margin:0 auto;padding:0 20px}
+.sec-label{font-size:.7rem;font-weight:500;letter-spacing:.17em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;display:flex;align-items:center;gap:.75rem}
+.sec-label::after{content:'';flex:0 0 36px;height:1px;background:var(--accent);opacity:.4}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;color:var(--ink);margin-bottom:3rem}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text-col p{color:var(--mid);font-weight:300;font-size:1rem;line-height:1.82;margin-bottom:1.2rem}
+.about-text-col p strong{color:var(--ink);font-weight:500}
+.about-text-col h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin:2rem 0 .9rem;letter-spacing:-.01em}
+.ws-block{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem}
+.ws-block p{margin:0;color:var(--mid);font-size:.95rem;line-height:1.8}
+.ws-block h4{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--accent);margin-top:1rem;line-height:1.55}
+.about-right-col{position:sticky;top:5rem}
+.about-img{width:100%;border-radius:12px;border:1px solid var(--border);display:block}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1rem}
+.stat-card{background:var(--ink);border-radius:10px;padding:1.1rem .8rem;text-align:center}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#4a9fff;line-height:1}
+.stat-label{font-size:.67rem;color:rgba(247,246,242,.45);margin-top:.3rem;line-height:1.4}
+
+/* TOOLS */
+.tools-section{background:var(--ink);padding:6rem 0}
+.tools-section .container{max-width:1200px;width:90%;margin:0 auto;padding:0 20px}
+.tools-section .sec-label{color:#4a9fff}
+.tools-section .sec-label::after{background:#4a9fff}
+.tools-section .sec-title{color:#f7f6f2}
+.tools-columns{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:.5rem}
+.tool-group-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.4rem;transition:background .3s,border-color .3s}
+.tool-group-card:hover{background:rgba(255,255,255,.07);border-color:rgba(74,159,255,.3)}
+.tg-title{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;color:rgba(247,246,242,.45);text-transform:uppercase;letter-spacing:.09em;margin-bottom:1.1rem}
+.tool-group-card ul{list-style:none;margin:0;padding:0}
+.tool-group-card li{font-size:.85rem;color:rgba(247,246,242,.7);padding:.44rem 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.tool-group-card li:last-child{border-bottom:none}
+.tool-group-card li:hover{color:#f7f6f2}
+.tdot{width:4px;height:4px;border-radius:50%;background:#4a9fff;flex-shrink:0;display:inline-block}
+
+/* FOOTER */
+footer{background:#080a0e;padding:1.75rem 0}
+.footer-content{display:flex;align-items:center;justify-content:space-between}
+.footer-info p{font-size:.8rem;color:rgba(247,246,242,.28)}
+.footer-links{display:flex;gap:.9rem}
+.footer-links a{color:rgba(247,246,242,.32);transition:color .2s;display:flex;align-items:center}
+.footer-links a:hover{color:#f7f6f2}
+.footer-icon{display:block}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:translateX(0)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.reveal.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* RESPONSIVE */
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-card{max-width:360px}
+  .about-grid{grid-template-columns:1fr}
+  .about-right-col{position:static}
+  .tools-columns{grid-template-columns:repeat(2,1fr)}
+  .footer-content{flex-direction:column;gap:1rem;text-align:center}
+  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(247,246,242,.98);backdrop-filter:blur(12px);flex-direction:column;padding:.75rem;box-shadow:0 8px 20px rgba(0,0,0,.12);margin:0}
+  .nav-links.active{display:flex}
+  .nav-links li{margin-left:0;padding:.1rem 0}
+  .nav-links a{font-size:.92rem;padding:.55rem .9rem;display:block}
+  .hamburger{display:flex}
+}
+@media(max-width:520px){
+  .tools-columns{grid-template-columns:1fr}
+  .hero-grid{padding:5rem 1.25rem 3rem}
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav class="navbar">
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">About</a></li>
-          <li><a href="pages/experience.html">Experience</a></li>
-          <li><a href="pages/education.html">Education</a></li>
-          <li><a href="pages/associations.html">Associations</a></li>
-          <li><a href="pages/projects.html">Projects</a></li>
-          <li><a href="pages/publications.html">Publications</a></li>
-          <li><a href="pages/talks.html">Talks</a></li>
-          <li><a href="pages/awards.html">Awards</a></li>
-          <li><a href="pages/contact.html">Contacts</a></li>
-        </ul>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
-    </div>
-  </header>
-  
-  <main>
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <div class="mission-box">
-            <div class="profile-container">
-              <img src="assets/images/mauricio-profile.jpg" alt="Mauricio Cordeiro" class="profile-image">
-              <img src="assets/images/apple-touch-icon.png" class="mission-icon">                         
-            </div>
-            <h1><strong>I am Mauricio Cordeiro</strong></h1>        
-            <p class="lead">As an Amazonian PhD Researcher, I'm on a mission to <strong>develop reality-centric AI for Public Health.</strong></p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
-        <h2>About Me</h2>
-        <div class="about-content">
-          <div class="about-text">
-            <p>Driven by a passion for applying artificial intelligence (AI) to human performance and public health, I pursued a BSc in Biomedical Engineering from the Universidade Federal do Pará and completed my PhD in AI for Human Performance at Technological University of the Shannon.</p>
-            <p>My work sits at the intersection of machine learning and health — <strong>synthetic data generation, performance monitoring, and computer vision applied to movement analysis</strong>. I care about methods that hold up under real conditions, with real constraints. I've worked in resource-limited settings long enough to know that's where most of the interesting problems live.
-            I work in English and Portuguese, and can get by in Spanish.</p>
-            <h3>My Work Style</h3>
-              <div class="work-style-content">
-              <img src="assets/images/Presentations.png" alt="Mauricio working on research projects" class="work-style-image">
-              <p>I do my best work on problems that don't fit neatly into one discipline. Statistical modeling and AI are tools — the point is a decision someone can actually act on. That means constantly translating between technical and non-technical audiences, which I've come to think of as part of the job. In teams, I try to identify people's strengths and help them enhance their skills.</p>
-              <h4>This portfolio covers my work in AI, data science, and human performance research — across sports science, clinical settings, and public health.</h4>
-              </div>       
-              <div class="tools-container">
-  <h3 class="tools-title">Main Tools Used in My Projects</h3>
-  <p class="tools-intro">An overview of the technical stack supporting my research and <strong>development</strong> workflow.</p>
-  
-  <div class="tools-grid">
-    <div class="tools-column">
-      <h3>Machine Learning & Deep Learning</h3>
-      <ul>
-        <li>Python / Scikit-learn</li>
-        <li>Pytorch</li>
-        <li>TensorFlow</li>
-        <li>Git / MLOps</li>
-        <li>SHAP</li>
-      </ul>
-    </div>
-    
-    <div class="tools-column">
-      <h3>Synthetic Data</h3>
-      <ul>
-        <li>SDV</li>
-        <li>Data Augmentation</li>
-        <li>Statistical Validation</li>
-        <li>Time-series Generation</li>
-        <li>Privacy-Preserving</li>
-      </ul>
-    </div>
-    
-    <div class="tools-column">
-      <h3>Computer Vision</h3>
-      <ul>
-        <li>OpenCV</li>
-        <li>MediaPipe</li>
-        <li>Sports2D</li>
-        <li>Pose Estimation</li>
-        <li>Object Tracking</li>
-      </ul>
-    </div>
-    
-    <div class="tools-column">
-      <h3>Research and Decision Making</h3>
-      <ul>
-        <li>Power BI / DAX</li>
-        <li>Statistical modelling</li>
-        <li>Quantitative methods</li>
-        <li>Project management</li>
-        <li>Research Design</li>
-      </ul>
+
+<header id="site-header">
+  <div class="navbar container">
+    <a href="index.html" class="nav-logo">MC</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="active">About</a></li>
+      <li><a href="pages/experience.html">Experience</a></li>
+      <li><a href="pages/education.html">Education</a></li>
+      <li><a href="pages/associations.html">Associations</a></li>
+      <li><a href="pages/projects.html">Projects</a></li>
+      <li><a href="pages/publications.html">Publications</a></li>
+      <li><a href="pages/talks.html">Talks</a></li>
+      <li><a href="pages/awards.html">Awards</a></li>
+      <li><a href="pages/contact.html">Contacts</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span id="hb1"></span><span id="hb2"></span><span id="hb3"></span>
     </div>
   </div>
-</div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="particle-canvas"></canvas>
+    <div class="hero-grid">
+      <div>
+        <p class="hero-eyebrow">Amazonian PhD Researcher</p>
+        <h1 class="hero-name">Mauricio<br><em>Cordeiro</em></h1>
+        <p class="hero-mission">On a mission to <strong>develop reality-centric AI for Public Health</strong> — building methods that hold up under real conditions, with real constraints.</p>
+        <div class="hero-cta">
+          <a href="#about" class="btn-primary-hero">Explore my work <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="pages/contact.html" class="btn-ghost-hero">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="profile-container">
+          <img src="assets/images/mauricio-profile.jpg" alt="Mauricio Cordeiro" class="profile-image">
+          <div class="status-dot" title="Open to collaboration"></div>
+        </div>
+        <div class="card-name">Mauricio Cordeiro</div>
+        <div class="card-role">PhD · AI for Human Performance<br>UFPA → Technological University of the Shannon</div>
+        <div class="card-tags">
+          <span class="card-tag">Machine Learning</span>
+          <span class="card-tag">Synthetic Data</span>
+          <span class="card-tag">Computer Vision</span>
+          <span class="card-tag">Public Health</span>
+        </div>
+        <div class="tw-label">Currently working on</div>
+        <div class="typewriter-text"><span id="tw-text"></span><span class="cursor">|</span></div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="reveal" id="about-head">
+        <div class="sec-label">About me</div>
+        <h2 class="sec-title">Where machine learning<br>meets the real world</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text-col reveal d1">
+          <p>Driven by a passion for applying artificial intelligence to human performance and public health, I pursued a BSc in Biomedical Engineering from the <strong>Universidade Federal do Pará</strong> and completed my PhD in AI for Human Performance at the <strong>Technological University of the Shannon</strong>.</p>
+          <p>My work sits at the intersection of machine learning and health — <strong>synthetic data generation, performance monitoring, and computer vision applied to movement analysis</strong>. I care about methods that hold up under real conditions, with real constraints. I've worked in resource-limited settings long enough to know that's where most of the interesting problems live.</p>
+          <p>I work in English and Portuguese, and can get by in Spanish.</p>
+          <h3>My Work Style</h3>
+          <div class="ws-block">
+            <p>I do my best work on problems that don't fit neatly into one discipline. Statistical modelling and AI are tools — the point is a decision someone can actually act on. That means constantly translating between technical and non-technical audiences, which I've come to think of as part of the job. In teams, I try to identify people's strengths and help them enhance their skills.</p>
+            <h4>This portfolio covers my work in AI, data science, and human performance research — across sports science, clinical settings, and public health.</h4>
+          </div>
+        </div>
+        <div class="about-right-col reveal d2">
+          <img src="assets/images/Presentations.png" alt="Mauricio presenting research" class="about-img">
+          <div class="stats-row">
+            <div class="stat-card"><div class="stat-num">PhD</div><div class="stat-label">AI for Human Performance</div></div>
+            <div class="stat-card"><div class="stat-num">2+</div><div class="stat-label">Languages of Work</div></div>
+            <div class="stat-card"><div class="stat-num" style="font-size:1.6rem">🌿</div><div class="stat-label">Amazonian Researcher</div></div>
           </div>
         </div>
       </div>
-    </section>
-  
-  <footer>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="tools-section">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-info">
-          <p>&copy; 2025 Mauricio Cordeiro. All rights reserved.</p>
+      <div class="reveal">
+        <div class="sec-label">Technical stack</div>
+        <h2 class="sec-title">Main tools used in my projects</h2>
+      </div>
+      <div class="tools-columns">
+        <div class="tool-group-card reveal d1">
+          <div class="tg-title">Machine Learning &amp; Deep Learning</div>
+          <ul>
+            <li><span class="tdot"></span>Python / Scikit-learn</li>
+            <li><span class="tdot"></span>PyTorch</li>
+            <li><span class="tdot"></span>TensorFlow</li>
+            <li><span class="tdot"></span>Git / MLOps</li>
+            <li><span class="tdot"></span>SHAP</li>
+          </ul>
         </div>
-        <div class="footer-links">
-          <a href="https://github.com/mauriciomau0" target="_blank" aria-label="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="footer-icon">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/mauriciocostac/" target="_blank" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="footer-icon">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-          </a>
-          <a href="mailto:mauricioccordeiro12@gmail.com" aria-label="Email">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="footer-icon">
-              <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
-            </svg>
-          </a>
+        <div class="tool-group-card reveal d2">
+          <div class="tg-title">Synthetic Data</div>
+          <ul>
+            <li><span class="tdot"></span>SDV</li>
+            <li><span class="tdot"></span>Data Augmentation</li>
+            <li><span class="tdot"></span>Statistical Validation</li>
+            <li><span class="tdot"></span>Time-series Generation</li>
+            <li><span class="tdot"></span>Privacy-Preserving</li>
+          </ul>
+        </div>
+        <div class="tool-group-card reveal d3">
+          <div class="tg-title">Computer Vision</div>
+          <ul>
+            <li><span class="tdot"></span>OpenCV</li>
+            <li><span class="tdot"></span>MediaPipe</li>
+            <li><span class="tdot"></span>Sports2D</li>
+            <li><span class="tdot"></span>Pose Estimation</li>
+            <li><span class="tdot"></span>Object Tracking</li>
+          </ul>
+        </div>
+        <div class="tool-group-card reveal d4">
+          <div class="tg-title">Research &amp; Decision Making</div>
+          <ul>
+            <li><span class="tdot"></span>Power BI / DAX</li>
+            <li><span class="tdot"></span>Statistical Modelling</li>
+            <li><span class="tdot"></span>Quantitative Methods</li>
+            <li><span class="tdot"></span>Project Management</li>
+            <li><span class="tdot"></span>Research Design</li>
+          </ul>
         </div>
       </div>
     </div>
-  </footer>
-  
-  <script src="js/script.js"></script>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-info"><p>&copy; 2025 Mauricio Cordeiro. All rights reserved.</p></div>
+      <div class="footer-links">
+        <a href="https://github.com/mauriciomau0" target="_blank" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="footer-icon"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/mauriciocostac/" target="_blank" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="footer-icon"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="mailto:mauricioccordeiro12@gmail.com" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="footer-icon"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+// Nav scroll behaviour
+window.addEventListener('scroll',()=>{
+  document.getElementById('site-header').classList.toggle('scrolled',window.scrollY>20)
+})
+
+// Hamburger
+const hb=document.getElementById('hamburger')
+const nl=document.getElementById('nav-links')
+const s1=document.getElementById('hb1'),s2=document.getElementById('hb2'),s3=document.getElementById('hb3')
+let mOpen=false
+hb.addEventListener('click',()=>{
+  mOpen=!mOpen
+  nl.classList.toggle('active',mOpen)
+  s1.style.transform=mOpen?'rotate(45deg) translate(5px,5px)':''
+  s2.style.opacity=mOpen?'0':'1'
+  s3.style.transform=mOpen?'rotate(-45deg) translate(7px,-7px)':''
+})
+
+// Particle canvas
+(function(){
+  const canvas=document.getElementById('particle-canvas')
+  const ctx=canvas.getContext('2d')
+  let animId
+  const nodes=[]
+  function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight}
+  function init(){
+    resize()
+    nodes.length=0
+    for(let i=0;i<50;i++) nodes.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-.5)*.38,vy:(Math.random()-.5)*.38,r:Math.random()*2+1})
+  }
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height)
+    nodes.forEach(n=>{
+      n.x+=n.vx;n.y+=n.vy
+      if(n.x<0||n.x>canvas.width)n.vx*=-1
+      if(n.y<0||n.y>canvas.height)n.vy*=-1
+    })
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy)
+        if(d<125){ctx.beginPath();ctx.strokeStyle=`rgba(74,159,255,${.1*(1-d/125)})`;ctx.lineWidth=.8;ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke()}
+      }
+      ctx.beginPath();ctx.arc(nodes[i].x,nodes[i].y,nodes[i].r,0,Math.PI*2);ctx.fillStyle='rgba(74,159,255,.16)';ctx.fill()
+    }
+    animId=requestAnimationFrame(draw)
+  }
+  window.addEventListener('resize',()=>{resize();nodes.forEach(n=>{if(n.x>canvas.width)n.x=canvas.width;if(n.y>canvas.height)n.y=canvas.height})})
+  init();draw()
+})()
+
+// Typewriter
+(function(){
+  const phrases=['Reality-centric AI models','Synthetic data generation','Movement analysis with CV','Resource-limited health AI']
+  const el=document.getElementById('tw-text')
+  let pi=0,ci=0,del=false
+  function tick(){
+    const cur=phrases[pi]
+    if(!del){
+      if(ci<cur.length){el.textContent=cur.slice(0,++ci);setTimeout(tick,65)}
+      else{setTimeout(()=>{del=true;tick()},2400)}
+    } else {
+      if(ci>0){el.textContent=cur.slice(0,--ci);setTimeout(tick,42)}
+      else{del=false;pi=(pi+1)%phrases.length;setTimeout(tick,300)}
+    }
+  }
+  tick()
+})()
+
+// Scroll reveal
+(function(){
+  const els=document.querySelectorAll('.reveal')
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}})
+  },{threshold:.12})
+  els.forEach(el=>obs.observe(el))
+})()
+</script>
 </body>
 </html>
