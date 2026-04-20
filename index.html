@@ -145,28 +145,55 @@ header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-
   </section>
 
   <section class="tools-section">
-    <div class="container">
-      <div class="reveal js-reveal">
-        <h2 class="sec-title">Technical stack</h2>
+  <div class="container">
+    <div class="reveal js-reveal">
+      <div class="sec-label">Technical stack</div>
+      <h2 class="sec-title">Main tools used in my projects</h2>
+    </div>
+    <div class="tools-columns" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1.25rem; margin-top:2rem">
+      <div class="tool-group-card reveal js-reveal">
+        <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1.1rem; text-transform:uppercase; letter-spacing:.09em;">Machine Learning &amp; Deep Learning</div>
+        <ul style="list-style:none; margin:0; padding:0">
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Python / Scikit-learn</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>PyTorch</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>TensorFlow</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Git / MLOps</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>SHAP</li>
+        </ul>
       </div>
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.5rem; margin-top:2rem">
-        <div class="tool-group-card reveal js-reveal">
-          <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1rem">ML & DEEP LEARNING</div>
-          <ul style="list-style:none; font-size:.85rem">
-            <li><span class="tdot"></span>Python / Scikit-learn</li>
-            <li><span class="tdot"></span>PyTorch / TensorFlow</li>
-          </ul>
-        </div>
-        <div class="tool-group-card reveal js-reveal">
-            <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1rem">SYNTHETIC DATA</div>
-            <ul style="list-style:none; font-size:.85rem">
-              <li><span class="tdot"></span>SDV / Time-series</li>
-              <li><span class="tdot"></span>Privacy-Preserving</li>
-            </ul>
-        </div>
+      <div class="tool-group-card reveal js-reveal">
+        <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1.1rem; text-transform:uppercase; letter-spacing:.09em;">Synthetic Data</div>
+        <ul style="list-style:none; margin:0; padding:0">
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>SDV</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Data Augmentation</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Statistical Validation</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Time-series Generation</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Privacy-Preserving</li>
+        </ul>
+      </div>
+      <div class="tool-group-card reveal js-reveal">
+        <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1.1rem; text-transform:uppercase; letter-spacing:.09em;">Computer Vision</div>
+        <ul style="list-style:none; margin:0; padding:0">
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>OpenCV</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>MediaPipe</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Sports2D</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Pose Estimation</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Object Tracking</li>
+        </ul>
+      </div>
+      <div class="tool-group-card reveal js-reveal">
+        <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1.1rem; text-transform:uppercase; letter-spacing:.09em;">Research &amp; Decision Making</div>
+        <ul style="list-style:none; margin:0; padding:0">
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Power BI / DAX</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Statistical Modelling</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Quantitative Methods</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Project Management</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Research Design</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 </main>
 
 <script>
