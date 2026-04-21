@@ -302,21 +302,22 @@ header {
   text-align: center;
 }
 
+.profile-image {
+  width: 100% !important; /* Makes image fill the container width */
+  max-width: 160px;       /* Keeps it at a reasonable size */
+  height: 160px !important;
+  border-radius: 12px !important; /* Matches the presentation image radius */
+  object-fit: cover;
+  border: 3px solid rgba(255,255,255,.15);
+  display: block;
+}
+
+/* Ensure the container doesn't restrict the image */
 .profile-container {
   position: relative;
   display: inline-block;
-  margin-bottom: 2rem;
-}
-
-.profile-image {
-  width: 160px !important;
-  height: 160px !important;
-  /* Matches the 12px radius of your presentation image */
-  border-radius: 12px !important; 
-  object-fit: cover;
-  border: 3px solid white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  display: block;
+  margin-bottom: 1.4rem;
+  width: 160px; 
 }
 
 .mission-icon {
