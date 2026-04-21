@@ -309,13 +309,14 @@ header {
 }
 
 .profile-image {
-  width: 160px;
-  height: 160px;
-  /* Changed from 50% to 12px to match the presentations image border radius */
-  border-radius: 12px; 
+  width: 160px !important;
+  height: 160px !important;
+  /* Matches the 12px radius of your presentation image */
+  border-radius: 12px !important; 
   object-fit: cover;
   border: 3px solid white;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: block;
 }
 
 .mission-icon {
