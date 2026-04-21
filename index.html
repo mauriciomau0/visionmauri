@@ -76,6 +76,56 @@ header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-
 .stat-card{background:var(--text-color);border-radius:10px;padding:1.1rem .8rem;text-align:center}
 .stat-num{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#66bb6a}
 .stat-label{font-size:.67rem;color:rgba(255,255,255,0.7);margin-top:.3rem}
+
+/* UPDATED ABOUT GRID FOR SMALLER RIGHT-ALIGNED IMAGE */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr; /* Gives the text much more space than the image */
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-right-col {
+  position: sticky;
+  top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Pushes content to the very right */
+}
+
+.about-img {
+  width: 100%;
+  max-width: 280px; /* Limits the maximum size of the image */
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: block;
+  object-fit: cover;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: 1fr; /* Stacked stats look better next to a small image */
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Ensure responsiveness for smaller screens */
+@media(max-width: 920px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-right-col {
+    align-items: center; /* Center on mobile */
+    position: static;
+  }
+  .stats-row {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+  }
+}
 </style>
 </head>
 <body>
@@ -136,8 +186,8 @@ header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-
               <h4>This portfolio covers my work in AI, data science, and human performance research — across sports science, clinical settings, and public health.</h4>
           </div>
         </div>
-        <div class="reveal js-reveal">
-          <img src="assets/images/Presentations.png" alt="Presenting" style="width:50%; border-radius:12px; border:1px solid var(--light-grey)">
+        <div class="about-right-col reveal js-reveal">
+           <img src="assets/images/Presentations.png" alt="Mauricio presenting research" class="about-img">
           </div>
         </div>
       </div>
