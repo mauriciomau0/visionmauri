@@ -22,7 +22,7 @@ body {
   background: var(--primary-color);
   color: var(--text-color);
   line-height: 1.65;
-}
+}f
 
 header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .4s,box-shadow .4s}
 header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--light-grey)}
@@ -143,6 +143,56 @@ header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-
   .stats-row {
     grid-template-columns: repeat(3, 1fr);
     max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hero: stack columns vertically */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    padding: 5rem 1.25rem 3rem;
+    gap: 2rem;
+  }
+
+  /* Fix word-by-word wrapping */
+  .hero-mission {
+    font-size: 1rem;
+    max-width: 100%;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .hero-name {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  /* Card: full width, no clipping */
+  .hero-card {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Buttons: stack vertically */
+  .hero-cta {
+    flex-direction: column;
+    gap: .75rem;
+  }
+
+  .btn-primary-hero,
+  .btn-ghost-hero {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* About section */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-right-col {
+    align-items: center;
   }
 }
 </style>
