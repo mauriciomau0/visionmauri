@@ -331,7 +331,7 @@ header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-
 
     ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle='rgba(46,125,50,0.40)'
 
-    nodes.forEach(n=>{ n.x+=n.vx; n.y+=n.vy; if(n.x<0||n.x>canvas.width)n.vx*=-1; if(n.y<0||n.y>canvas.height)n.vy*=-1; ctx.beginPath(); ctx.arc(n.x,n.y,4,0,Math.PI*2); ctx.fill()})
+    nodes.forEach(n=>{ n.x+=n.vx; n.y+=n.vy; if(n.x<0||n.x>canvas.width)n.vx*=-1; if(n.y<0||n.y>canvas.height)n.vy*=-1; ctx.beginPath(); ctx.arc(n.x,n.y,2.5,0,Math.PI*2); ctx.fill()})
 
     requestAnimationFrame(draw)
 
