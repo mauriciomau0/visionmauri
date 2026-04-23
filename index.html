@@ -196,16 +196,6 @@ header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-
   }
 }
 
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-}
-
 .nav-toggle span {
   display: block;
   width: 24px;
@@ -428,8 +418,9 @@ document.getElementById('explore-btn').addEventListener('click', function() {
     reveals.forEach(el => el.classList.add('on'));
 });
 
-document.getElementById('nav-toggle').addEventListener('click', function() {
-  document.getElementById('nav-links').classList.toggle('open');
+document.getElementById('hamburger').addEventListener('click', function() {
+  this.classList.toggle('active');
+  document.getElementById('nav-links').classList.toggle('active');
 });
 </script>
 </body>
