@@ -66,6 +66,13 @@ header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-
   width: 100%;
 }
 
+/* SECTION TYPOGRAPHY — Syne for headings, DM Sans for body copy */
+h2,h3{font-family:'Syne',sans-serif;letter-spacing:-.02em}
+.sec-label{font-size:.75rem;font-weight:500;letter-spacing:.16em;color:#2e7d32;text-transform:uppercase;margin-bottom:.75rem}
+.sec-title{font-size:clamp(1.7rem,3vw,2.2rem);font-weight:700;color:var(--text-color)}
+.about-text-col p{font-size:1.02rem;color:var(--dark-grey);margin-bottom:1.15rem}
+.about-text-col h3{font-size:1.25rem;margin-top:2.25rem}
+
 /* TOOLS */
 .tools-section{background:var(--secondary-color);padding:6rem 0}
 .tool-group-card{background:#fff;border:1px solid var(--light-grey);border-radius:12px;padding:1.4rem}
@@ -292,16 +299,16 @@ header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-
   <section id="about" class="about" style="padding:7rem 0 5rem">
     <div class="container">
     <div class="reveal js-reveal">
-      <h2 style="font-family: 'Play', sans-serif">About me</h2>
+      <h2 class="sec-title">About me</h2>
     </div>
     <div class="about-grid">
-      <div style="font-family: 'Play', sans-serif"; class="about-text-col reveal js-reveal">
+      <div class="about-text-col reveal js-reveal">
         <p>I studied Biomedical Engineering at the <strong>Universidade Federal do Pará</strong>, then moved to a PhD at the <strong>Technological University of the Shannon</strong>, working on AI for human performance. The through-line was always the same interest: what happens when you put machine learning in contact with how the body actually works.</p>
         <p>Most of my work sits at the intersection of <strong>machine learning, generative AI, performance monitoring, and computer vision</strong> — usually in the digital health space. I am drawn to methods that withstand real-world conditions: messy data and decisions made in real-world scenarios with the human in the loop.</p>
         <p>I work in English and Portuguese. Spanish well enough to follow a conversation.</p>
-        <h3 style="font-family: 'Play', sans-serif">One of the pillars I believe in</h3>
+        <h3>One of the pillars I believe in</h3>
         <div class="ws-block" style="background:var(--secondary-color); border-radius:12px; padding:1.4rem">
-           <p style="font-family: 'Play', sans-serif; font-size: 1.05rem; line-height: 1.85; color: var(--dark-grey);">Reality-centric AI starts where some teams refuse to: the data. Before any model is trained, someone needs to ask whether the variables are consistently recorded, whether the outcome being predicted is clearly defined, and whether a simpler statistical approach would already answer the question. Most clinical AI failures are not due to algorithmic issues. They are infrastructural. A neural network trained on noisy, inconsistently labeled data does not fail loudly. It produces outputs that look right, get trusted, and reach clinicians who have no reason to question them. Building a model with clearly specified assumptions and honest accounting of what the data is missing is not a warm-up act. It is the step that tells you whether AI is justified at all. At the end of every output, there is a clinician who decides, and a patient who lives with it.</p>
+           <p style="font-size: 1.02rem; line-height: 1.85; color: var(--dark-grey);">Reality-centric AI starts where some teams refuse to: the data. Before any model is trained, someone needs to ask whether the variables are consistently recorded, whether the outcome being predicted is clearly defined, and whether a simpler statistical approach would already answer the question. Most clinical AI failures are not due to algorithmic issues. They are infrastructural. A neural network trained on noisy, inconsistently labeled data does not fail loudly. It produces outputs that look right, get trusted, and reach clinicians who have no reason to question them. Building a model with clearly specified assumptions and honest accounting of what the data is missing is not a warm-up act. It is the step that tells you whether AI is justified at all. At the end of every output, there is a clinician who decides, and a patient who lives with it.</p>
         </div>
       </div>
         <div class="about-right-col reveal js-reveal">
@@ -312,10 +319,10 @@ header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-
   </section>
 
   <section class="tools-section">
-  <div style="font-family: 'Play', sans-serif"; class="container">
+  <div class="container">
     <div class="reveal js-reveal">
-      <div style="font-family: 'Play', sans-serif"; class="sec-label">Technical stack</div>
-      <h2 style="font-family: 'Play', sans-serif"; class="sec-title">Main tools used in my projects</h2>
+      <div class="sec-label">Technical stack</div>
+      <h2 class="sec-title">Main tools used in my projects</h2>
     </div>
     <div class="tools-columns" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1.25rem; margin-top:2rem">
       <div class="tool-group-card reveal js-reveal">
@@ -351,11 +358,21 @@ header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-
       <div class="tool-group-card reveal js-reveal">
         <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1.1rem; text-transform:uppercase; letter-spacing:.09em;">Research &amp; Decision Making</div>
         <ul style="list-style:none; margin:0; padding:0">
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Power BI / DAX</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Power BI / StreamLit</li>
           <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Statistical Modelling</li>
           <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Quantitative Methods</li>
           <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Project Management</li>
           <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Research Design</li>
+        </ul>
+      </div>
+      <div class="tool-group-card reveal js-reveal">
+        <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1.1rem; text-transform:uppercase; letter-spacing:.09em;">Digital Health</div>
+        <ul style="list-style:none; margin:0; padding:0">
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Health Surveillance Analytics</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Clinical Data Validation</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Privacy-Preserving Health Data</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Explainable AI in Health</li>
+          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Human-in-the-Loop Clinical Design</li>
         </ul>
       </div>
     </div>
