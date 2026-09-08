@@ -3,442 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title style="font-family: 'Play', sans-serif">Mauricio Cordeiro | PhD Researcher & Biomedical Engineer</title>
-<link rel="stylesheet" href="css/styles.css">
+<title>Mauricio Cordeiro | PhD Researcher &amp; Biomedical Engineer</title>
+<meta name="description" content="PhD researcher and biomedical engineer working on reality-centric AI for public health, machine learning and computer vision.">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<link rel="icon" href="assets/images/mauricio-profile-favicon.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/jpg" href="assets/images/mauricio-profile-favicon.jpg">
-<style>
-/* ============================================================
-   INDEX PAGE OVERRIDES — Light Theme & Green Accents
-   ============================================================ */
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--primary-color);
-  color: var(--text-color);
-  line-height: 1.65;
-}
-
-header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .4s,box-shadow .4s}
-header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--light-grey)}
-.navbar{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;color:var(--text-color);text-decoration:none}
-
-/* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--primary-color);overflow:hidden;padding:0}
-#particle-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.hero-grid{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:6rem 2rem 4rem;display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center;width:100%}
-.hero-eyebrow{font-size:.75rem;font-weight:500;letter-spacing:.16em;color:#2e7d32;text-transform:uppercase;margin-bottom:1.25rem;opacity:0;animation:fadeUp .8s .3s forwards}
-.hero-name{font-family:'Syne',sans-serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:800;line-height:1.02;color:var(--text-color);letter-spacing:-.03em;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .5s forwards}
-.hero-name em{font-style:normal;background:linear-gradient(135deg,#2e7d32 0%,#66bb6a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-mission{font-size:1.1rem;font-weight:300;color:var(--dark-grey);margin-bottom:2.5rem;line-height:1.75;max-width:500px;opacity:0;animation:fadeUp .8s .7s forwards}
-
-/* BUTTONS */
-.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .9s forwards}
-.btn-primary-hero{display:inline-flex;align-items:center;gap:.5rem;background:#2e7d32;color:#fff;padding:.7rem 1.5rem;border-radius:var(--border-radius);font-size:.88rem;font-weight:500;text-decoration:none;transition:all .2s}
-.btn-primary-hero:hover{background:#1b5e20;transform:translateY(-2px);color:#fff}
-.btn-ghost-hero{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--light-grey);color:var(--dark-grey);padding:.7rem 1.5rem;border-radius:var(--border-radius);font-size:.88rem;font-weight:400;text-decoration:none;transition:all .2s}
-
-/* HERO CARD - UPDATED */
-.hero-card {
-  opacity: 0;
-  animation: fadeRight .9s .6s forwards;
-  background: var(--secondary-color);
-  border: 1px solid var(--light-grey);
-  border-radius: 16px;
-  padding: 1.75rem;
-  box-shadow: var(--shadow-md);
-  
-  /* ADD THESE LINES */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Keeps text left-aligned */
-  width: 100%; /* Ensures the card itself attempts to fill its container */
-}
-
-/* ADD THIS CSS CLASS */
-.w-100 {
-  width: 100%;
-}
-
-/* SECTION TYPOGRAPHY — Syne for headings, DM Sans for body copy */
-h2,h3{font-family:'Syne',sans-serif;letter-spacing:-.02em}
-.sec-label{font-size:.75rem;font-weight:500;letter-spacing:.16em;color:#2e7d32;text-transform:uppercase;margin-bottom:.75rem}
-.sec-title{font-size:clamp(1.7rem,3vw,2.2rem);font-weight:700;color:var(--text-color)}
-.about-text-col p{font-size:1.02rem;color:var(--dark-grey);margin-bottom:1.15rem}
-.about-text-col h3{font-size:1.25rem;margin-top:2.25rem}
-
-/* TOOLS */
-.tools-section{background:var(--secondary-color);padding:6rem 0}
-.tool-group-card{background:#fff;border:1px solid var(--light-grey);border-radius:12px;padding:1.4rem}
-.tdot{width:4px;height:4px;border-radius:50%;background:#2e7d32;display:inline-block;margin-right:8px}
-
-/* ANIMATIONS - Refined for visibility development */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeRight{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:translateX(0)}}
-
-/* The reveal elements are now visible by default to prevent "missing" text */
-.reveal {
-  opacity: 1; 
-  transform: translateY(0);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-/* We use a 'js-reveal' class for the initial hidden state so it only hides if JS is working */
-.js-reveal {
-  opacity: 0;
-  transform: translateY(30px);
-}
-.js-reveal.on {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.stat-card{background:var(--text-color);border-radius:10px;padding:1.1rem .8rem;text-align:center}
-.stat-num{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#66bb6a}
-.stat-label{font-size:.67rem;color:rgba(255,255,255,0.7);margin-top:.3rem}
-
-/* UPDATED ABOUT GRID FOR SMALLER RIGHT-ALIGNED IMAGE */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 0.5fr; /* Gives the text much more space than the image */
-  gap: 4rem;
-  align-items: start;
-}
-
-.about-right-col {
-  position: sticky;
-  top: 6rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Pushes content to the very right */
-}
-
-.about-img {
-  width: 100%;
-  max-width: 280px; /* Limits the maximum size of the image */
-  height: auto;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  display: block;
-  object-fit: cover;
-}
-
-.stats-row {
-  display: grid;
-  grid-template-columns: 1fr; /* Stacked stats look better next to a small image */
-  gap: 0.8rem;
-  margin-top: 1.5rem;
-  width: 100%;
-  max-width: 280px;
-}
-
-/* Ensure responsiveness for smaller screens */
-@media(max-width: 920px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-  .about-right-col {
-    align-items: center; /* Center on mobile */
-    position: static;
-  }
-  .stats-row {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Hero: stack columns vertically */
-  .hero-grid {
-    grid-template-columns: 1fr;
-    padding: 5rem 1.25rem 3rem;
-    gap: 2rem;
-  }
-
-  /* Fix word-by-word wrapping */
-  .hero-mission {
-    font-size: 1rem;
-    max-width: 100%;
-    word-break: normal;
-    overflow-wrap: break-word;
-  }
-
-  .hero-name {
-    font-size: clamp(2.2rem, 10vw, 3rem);
-  }
-
-  /* Card: full width, no clipping */
-  .hero-card {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  /* Buttons: stack vertically */
-  .hero-cta {
-    flex-direction: column;
-    gap: .75rem;
-  }
-
-  .btn-primary-hero,
-  .btn-ghost-hero {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* About section */
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .about-right-col {
-    align-items: center;
-  }
-}
-
-.nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--text-color);
-  border-radius: 2px;
-  transition: all .3s;
-}
-
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: flex;
-  }
-
-  .nav-links {
-    display: none;
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background: rgba(255,255,255,0.98);
-    backdrop-filter: blur(12px);
-    flex-direction: column;
-    padding: 1rem 1.5rem 2rem;
-    gap: 0;
-    list-style: none;
-    border-bottom: 1px solid var(--light-grey);
-    z-index: 999;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links li a {
-    display: block;
-    padding: .75rem 0;
-    border-bottom: 1px solid var(--light-grey);
-    font-size: .95rem;
-    color: var(--text-color);
-    text-decoration: none;
-  }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<header id="site-header">
-  <div class="navbar container">
-    <a href="index.html" class="nav-logo">MC</a>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">Mauricio<span>.</span></span>
+        <span class="brand-sub">AI &amp; Public Health</span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html" class="active">About</a></li>
-      <li><a href="pages/experience.html">Experience</a></li>
-      <li><a href="pages/teaching.html">Teaching</a></li>
-      <li><a href="pages/education.html">Education</a></li>
-      <li><a href="pages/associations.html">Associations</a></li>
-      <li><a href="pages/projects.html">Projects</a></li>
-      <li><a href="pages/publications.html">Publications</a></li>
-      <li><a href="pages/talks.html">Talks</a></li>
-      <li><a href="pages/awards.html">Awards</a></li>
-      <li><a href="pages/contact.html">Contacts</a></li>
+
+    <ul class="nav" id="nav">
+      <li><a href="index.html" class="active" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/></svg>Home</a></li>
+      <li><a href="pages/about.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c0-4.1 3.4-6.5 7.5-6.5s7.5 2.4 7.5 6.5"/></svg>About me</a></li>
+      <li><a href="pages/experience.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="1"/><path d="M3.5 9.5h17"/></svg>Experience</a></li>
+      <li><a href="pages/teaching.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h9"/></svg>Teaching</a></li>
+      <li><a href="pages/education.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 3 8.5l9 4.5 9-4.5L12 4Z"/><path d="M6.5 11v5.5c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5V11"/></svg>Education</a></li>
+      <li><a href="pages/highlights.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h6l1.5 2h9.5v11h-17z"/></svg>Highlights</a></li>
+      <li><a href="pages/contact.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4z"/><path d="m4 7.5 8 5.5 8-5.5"/></svg>Contact</a></li>
     </ul>
-  </div>
-</header>
 
-<main>
-  <section class="hero">
-    <canvas id="particle-canvas"></canvas>
-    <div class="hero-grid">
-      <div>
-        <p class="hero-eyebrow">Amazonian PhD Researcher</p>
-        <h1 style="font-family: 'Play', sans-serif"; class="hero-name">Mauricio<br><em>Cordeiro</em></h1>
-        <p class="hero-mission">On a mission to <strong>develop reality-centric AI for Public Health</strong>, building methods that hold up under real conditions, with real constraints.</p>
-        <div class="hero-cta">
-          <a href="#about" id="explore-btn" class="btn-primary-hero">Explore my work</a>
-          <a href="pages/contact.html" class="btn-ghost-hero">Get in touch</a>
+    <div class="sidebar-foot">
+      <div class="social">
+        <a href="https://www.linkedin.com/in/mauricio-cordeiro/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5"/><path d="M8 10.5v6.5M8 7.4v.1M12 17v-3.8a2.2 2.2 0 0 1 4.4 0V17"/></svg></a>
+        <a href="https://github.com/visionmauri" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+        <a href="mailto:mauricioccordeiro12@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M4 6.5h16v11H4z"/><path d="m4 7.5 8 5.5 8-5.5"/></svg></a>
+      </div>
+      <p class="sidebar-base">Belém, Brazil<br>Athlone, Ireland</p>
+    </div>
+  </aside>
+
+  <main class="content">
+    <section class="intro">
+      <div class="intro-aside">
+        <img class="portrait" src="assets/images/mauricio-profile.jpg"
+             alt="Portrait of Mauricio Cordeiro"
+             width="800" height="800" fetchpriority="high" decoding="async">
+      </div>
+
+      <div class="intro-main">
+        <p class="eyebrow status">Amazonian PhD Researcher</p>
+
+        <div>
+          <h1 class="display intro-name">Mauricio Cordeiro</h1>
+          <p class="lede intro-lede">
+            On a mission to develop reality-centric AI for Public Health, building
+            methods that hold up under real conditions, with real constraints.
+          </p>
+        </div>
+
+        <p class="tw"><span class="tw-static">Working on</span><span id="tw-text"></span><span class="tw-cursor" aria-hidden="true"></span></p>
+
+        <dl class="spec">
+          <div class="spec-row"><dt>Role</dt><dd>PhD Researcher &amp; Biomedical Engineer</dd></div>
+          <div class="spec-row"><dt>Teaching</dt><dd>Machine learning professor at FIESC</dd></div>
+          <div class="spec-row"><dt>Focus</dt><dd>Machine learning, generative AI, performance monitoring, computer vision</dd></div>
+          <div class="spec-row"><dt>Fields</dt><dd>Digital health, biomechanics, public health</dd></div>
+          <div class="spec-row"><dt>Languages</dt><dd>English · Portuguese · Spanish</dd></div>
+          <div class="spec-row"><dt>Email</dt><dd><a href="mailto:mauricioccordeiro12@gmail.com">mauricioccordeiro12@gmail.com</a></dd></div>
+        </dl>
+
+        <div class="actions">
+          <a class="btn btn-solid" href="mailto:mauricioccordeiro12@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4z"/><path d="m4 7.5 8 5.5 8-5.5"/></svg>
+            Email
+          </a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/mauricio-cordeiro/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5"/><path d="M8 10.5v6.5M8 7.4v.1M12 17v-3.8a2.2 2.2 0 0 1 4.4 0V17"/></svg>
+            LinkedIn
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/visionmauri" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+            GitHub
+          </a>
+          <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=tutodOMAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1.5 8.5 12 14l8.5-4.4v5.6"/><path d="M6 11.2v4.3c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.3"/></svg>
+            Google Scholar
+          </a>
+          <a class="btn btn-ghost" href="pages/highlights.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h6l1.5 2h9.5v11h-17z"/></svg>
+            Highlights
+          </a>
         </div>
       </div>
-      <div class="hero-card">
-        <div class="profile-container">
-          <img src="assets/images/mauricio-profile.jpg" alt="Mauricio Cordeiro" class="profile-image">
-        </div>
-        <div class="card-name">Mauricio Cordeiro</div>
-        <div class="card-role">PhD Researcher & Biomedical Engineer</div>
-        <div class="tw-label" style="font-size:.7rem; color:var(--medium-grey); margin-top:10px;">Currently working as a machine learning professor at FIESC, and doing side projects on machine learning, biomechanics, and public health.</div> 
-        <div class="typewriter-text"><span id="tw-text"></span><span class="cursor">|</span></div>
+    </section>
+
+    <div class="foot">
+      <span>© <span data-year></span> Mauricio Costa Cordeiro</span>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <a href="pages/about.html">About me</a>
+        <a href="pages/highlights.html">Highlights</a>
+        <a href="pages/teaching.html">Teaching</a>
+        <a href="pages/contact.html">Contact</a>
       </div>
     </div>
-  </section>
+  </main>
+</div>
 
-  <section id="about" class="about" style="padding:7rem 0 5rem">
-    <div class="container">
-    <div class="reveal js-reveal">
-      <h2 class="sec-title">About me</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-text-col reveal js-reveal">
-        <p>I studied Biomedical Engineering at the <strong>Universidade Federal do Pará</strong>, then moved to a PhD at the <strong>Technological University of the Shannon</strong>, working on AI for human performance. The through-line was always the same interest: what happens when you put machine learning in contact with how the body actually works.</p>
-        <p>Most of my work sits at the intersection of <strong>machine learning, generative AI, performance monitoring, and computer vision</strong> — usually in the digital health space. I am drawn to methods that withstand real-world conditions: messy data and decisions made in real-world scenarios with the human in the loop.</p>
-        <p>I work in English and Portuguese. Spanish well enough to follow a conversation.</p>
-        <h3>One of the pillars I believe in</h3>
-        <div class="ws-block" style="background:var(--secondary-color); border-radius:12px; padding:1.4rem">
-           <p style="font-size: 1.02rem; line-height: 1.85; color: var(--dark-grey);">Reality-centric AI starts where some teams refuse to: the data. Before any model is trained, someone needs to ask whether the variables are consistently recorded, whether the outcome being predicted is clearly defined, and whether a simpler statistical approach would already answer the question. Most clinical AI failures are not due to algorithmic issues. They are infrastructural. A neural network trained on noisy, inconsistently labeled data does not fail loudly. It produces outputs that look right, get trusted, and reach clinicians who have no reason to question them. Building a model with clearly specified assumptions and honest accounting of what the data is missing is not a warm-up act. It is the step that tells you whether AI is justified at all. At the end of every output, there is a clinician who decides, and a patient who lives with it.</p>
-        </div>
-      </div>
-        <div class="about-right-col reveal js-reveal">
-           <img src="assets/images/Presentations.png" alt="Mauricio presenting research" class="about-img">
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <section class="tools-section">
-  <div class="container">
-    <div class="reveal js-reveal">
-      <div class="sec-label">Technical stack</div>
-      <h2 class="sec-title">Main tools used in my projects</h2>
-    </div>
-    <div class="tools-columns" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1.25rem; margin-top:2rem">
-      <div class="tool-group-card reveal js-reveal">
-        <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1.1rem; text-transform:uppercase; letter-spacing:.09em;">Machine Learning &amp; Deep Learning</div>
-        <ul style="list-style:none; margin:0; padding:0">
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Python / Scikit-learn</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>PyTorch</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>TensorFlow</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Git / MLOps</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>SHAP</li>
-        </ul>
-      </div>
-      <div class="tool-group-card reveal js-reveal">
-        <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1.1rem; text-transform:uppercase; letter-spacing:.09em;">Synthetic Data</div>
-        <ul style="list-style:none; margin:0; padding:0">
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>SDV</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Data Augmentation</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Statistical Validation</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Time-series Generation</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Privacy-Preserving</li>
-        </ul>
-      </div>
-      <div class="tool-group-card reveal js-reveal">
-        <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1.1rem; text-transform:uppercase; letter-spacing:.09em;">Computer Vision</div>
-        <ul style="list-style:none; margin:0; padding:0">
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>OpenCV</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>MediaPipe</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Sports2D</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Pose Estimation</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Object Tracking</li>
-        </ul>
-      </div>
-      <div class="tool-group-card reveal js-reveal">
-        <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1.1rem; text-transform:uppercase; letter-spacing:.09em;">Research &amp; Decision Making</div>
-        <ul style="list-style:none; margin:0; padding:0">
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Power BI / StreamLit</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Statistical Modelling</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Quantitative Methods</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Project Management</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Research Design</li>
-        </ul>
-      </div>
-      <div class="tool-group-card reveal js-reveal">
-        <div class="tg-title" style="font-weight:700; font-size:.75rem; color:var(--medium-grey); margin-bottom:1.1rem; text-transform:uppercase; letter-spacing:.09em;">Digital Health</div>
-        <ul style="list-style:none; margin:0; padding:0">
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Health Surveillance Analytics</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Clinical Data Validation</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Privacy-Preserving Health Data</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; border-bottom:1px solid var(--secondary-color); display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Explainable AI in Health</li>
-          <li style="font-size:.85rem; color:var(--dark-grey); padding:.44rem 0; display:flex; align-items:center; gap:.5rem;"><span class="tdot"></span>Human-in-the-Loop Clinical Design</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
-
-<script>
-// Particles
-
-(function(){
-
-  const canvas=document.getElementById('particle-canvas'), ctx=canvas.getContext('2d')
-
-  let nodes=[]; function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight}
-
-  function init(){ resize(); nodes=[]; for(let i=0;i<100;i++) nodes.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3})}
-
-  function draw(){
-
-    ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle='rgba(46,125,50,0.40)'
-
-    nodes.forEach(n=>{ n.x+=n.vx; n.y+=n.vy; if(n.x<0||n.x>canvas.width)n.vx*=-1; if(n.y<0||n.y>canvas.height)n.vy*=-1; ctx.beginPath(); ctx.arc(n.x,n.y,2.5,0,Math.PI*2); ctx.fill()})
-
-    requestAnimationFrame(draw)
-
-  }
-
-  init(); draw(); window.onresize=init
-
-})();
-
-// Typewriter
-(function(){
-  const phrases=['Reality-centric AI', 'Public Health', 'Deep Learning', 'Generative AI'];
-  const el=document.getElementById('tw-text'); let pi=0,ci=0,del=false
-  function tick(){
-    const cur=phrases[pi]; el.textContent=cur.slice(0,ci);
-    if(!del && ci<cur.length){ ci++; setTimeout(tick,70) }
-    else if(del && ci>0){ ci--; setTimeout(tick,40) }
-    else { del=!del; if(!del)pi=(pi+1)%phrases.length; setTimeout(tick, del?2000:500) }
-  }
-  tick();
-})();
-
-// Improved Reveal Logic
-const reveals = document.querySelectorAll('.js-reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('on');
-    }
-  });
-}, { threshold: 0.1 });
-
-reveals.forEach(el => observer.observe(el));
-
-// Force visibility when clicking "Explore my work"
-document.getElementById('explore-btn').addEventListener('click', function() {
-    reveals.forEach(el => el.classList.add('on'));
-});
-
-document.getElementById('hamburger').addEventListener('click', function() {
-  this.classList.toggle('active');
-  document.getElementById('nav-links').classList.toggle('active');
-});
-</script>
+<script src="js/script.js"></script>
 </body>
 </html>
