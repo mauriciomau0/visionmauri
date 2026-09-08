@@ -1,216 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teaching | Mauricio Costa Cordeiro</title>
-  <link rel="stylesheet" href="../css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/jpg" href="../assets/images/mauricio-profile-favicon.jpg">
-  <style>
-    /* Teaching page — methods block */
-    .teaching-methods {
-      background-color: var(--secondary-color);
-      border-radius: var(--border-radius);
-      padding: 1.75rem;
-      margin-top: 2.5rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .teaching-methods h3 {
-      margin-bottom: 0.4rem;
-    }
-
-    .teaching-methods > p {
-      color: var(--dark-grey);
-      margin-bottom: 1rem;
-    }
-
-    .method-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .method-list li {
-      padding: 0.7rem 0;
-      border-bottom: 1px solid var(--light-grey);
-      color: var(--dark-grey);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    .method-list li:last-child {
-      border-bottom: none;
-    }
-
-    .method-list strong {
-      color: var(--text-color);
-      font-weight: 600;
-    }
-
-    .background-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.25rem;
-    }
-
-    .background-tag {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--success-color);
-      background-color: rgba(76, 175, 80, 0.1);
-      border-radius: var(--border-radius);
-      padding: 0.3rem 0.8rem;
-    }
-
-    .repo-link {
-      display: inline-block;
-      margin-top: 0.5rem;
-      font-weight: 500;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching | Mauricio Cordeiro</title>
+<meta name="description" content="Machine learning teaching by Mauricio Cordeiro at FIESC and related programmes.">
+<link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+<link rel="icon" href="../assets/images/mauricio-profile-favicon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav class="navbar">
-        <ul class="nav-links">
-          <li><a href="../index.html">About</a></li>
-          <li><a href="experience.html">Experience</a></li>
-          <li><a href="teaching.html" class="active">Teaching</a></li>
-          <li><a href="education.html">Education</a></li>
-          <li><a href="associations.html">Associations</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="publications.html">Publications</a></li>
-          <li><a href="talks.html">Talks</a></li>
-          <li><a href="awards.html">Awards</a></li>
-          <li><a href="contact.html">Contacts</a></li>
-        </ul>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="topbar">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">Mauricio<span>.</span></span>
+        <span class="brand-sub">AI &amp; Public Health</span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
-  </header>
 
-  <main>
-    <section class="experience-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Teaching</h2>
-        </div>
+    <ul class="nav" id="nav">
+      <li><a href="../index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/></svg>Home</a></li>
+      <li><a href="experience.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="1"/><path d="M3.5 9.5h17"/></svg>Experience</a></li>
+      <li><a href="teaching.html" class="active" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h9"/></svg>Teaching</a></li>
+      <li><a href="education.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 3 8.5l9 4.5 9-4.5L12 4Z"/><path d="M6.5 11v5.5c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5V11"/></svg>Education</a></li>
+      <li><a href="projects.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h6l1.5 2h9.5v11h-17z"/></svg>Projects</a></li>
+      <li><a href="publications.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M5 9.5h14"/></svg>Publications</a></li>
+      <li><a href="talks.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v11H9.5l-5.5 4z"/></svg>Talks</a></li>
+      <li><a href="awards.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 7 21l5-2.5L17 21l-1.5-7.5"/></svg>Awards</a></li>
+      <li><a href="associations.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3.2"/><circle cx="16" cy="14" r="3.2"/><path d="M11.5 11.2 13.6 12.4"/></svg>Associations</a></li>
+      <li><a href="contact.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4z"/><path d="m4 7.5 8 5.5 8-5.5"/></svg>Contact</a></li>
+    </ul>
 
-        <div class="experience-grid">
-          <!-- Current teaching role -->
-          <div class="experience-card ongoing">
-            <div class="experience-header">
-              <h3>Professor of Machine Learning</h3>
-              <div class="experience-company"><a href="https://www.fiesc.com.br/" target="_blank" rel="noopener">FIESC</a></div>
-            </div>
-            <div class="experience-body">
-              <div class="experience-detail">
-                <div class="experience-label">Duration: Current</div>
-              </div>
-              <div class="experience-detail">
-                <div class="experience-value">
-                  <p>I teach machine learning classes at FIESC, taking students from the statistical groundwork through to models they can train, evaluate, and argue about honestly. I also completed the <strong>Eleva FIESC</strong> pedagogical training programme, which shaped how I structure a class rather than just what I put in it.</p>
-                </div>
-              </div>
-              <div class="experience-status ongoing">Ongoing</div>
-            </div>
+    <div class="sidebar-foot">
+      <div class="social">
+        <a href="https://www.linkedin.com/in/mauricio-cordeiro/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5"/><path d="M8 10.5v6.5M8 7.4v.1M12 17v-3.8a2.2 2.2 0 0 1 4.4 0V17"/></svg></a>
+        <a href="https://github.com/visionmauri" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+        <a href="mailto:mauricioccordeiro12@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M4 6.5h16v11H4z"/><path d="m4 7.5 8 5.5 8-5.5"/></svg></a>
+      </div>
+      <p class="sidebar-base">Belém, Brazil<br>Athlone, Ireland</p>
+    </div>
+  </aside>
+
+  <main class="content">
+    <section class="page-head">
+      <p class="eyebrow">Classroom</p>
+      <h1 class="display">Teaching</h1>
+    </section>
+
+    <section class="block">
+      <div class="block-head">
+        <h2 class="block-title">Courses and programmes</h2>
+        <span class="block-note">3 entries</span>
+      </div>
+      <div class="entries reveal">
+        <article class="entry">
+          <div class="entry-date">—</div>
+          <div class="entry-body">
+            <h3>Professor of Machine Learning <span class="entry-org">· <a href="https://www.fiesc.com.br/" target="_blank" rel="noopener">FIESC</a></span></h3>
+            <p>I teach machine learning classes at FIESC, taking students from the statistical groundwork through to models they can train, evaluate, and argue about honestly. I also completed the Eleva FIESC pedagogical training programme, which shaped how I structure a class rather than just what I put in it.</p><p><a href="https://www.fiesc.com.br/" target="_blank" rel="noopener">Open link</a></p>
           </div>
-
-          <!-- Laboratory tutoring -->
-          <div class="experience-card">
-            <div class="experience-header">
-              <h3>Physics Laboratory Demonstrator &amp; Tutor</h3>
-              <div class="experience-company"><a href="https://www.tus.ie/" target="_blank" rel="noopener">Technological University of the Shannon</a></div>
-            </div>
-            <div class="experience-body">
-              <div class="experience-detail">
-                <div class="experience-label">Duration: Four years</div>
-              </div>
-              <div class="experience-detail">
-                <div class="experience-value">
-                  <p>Four years of laboratory tutoring at TUS: mechanics, statistical analysis, and electrical measurements with undergraduate cohorts. Small groups, hands-on equipment, and students who learn by getting a measurement wrong first.</p>
-                </div>
-              </div>
-              <div class="experience-status past">Past</div>
-            </div>
+        </article>
+        <article class="entry">
+          <div class="entry-date">—</div>
+          <div class="entry-body">
+            <h3>Physics Laboratory Demonstrator &amp; Tutor <span class="entry-org">· <a href="https://www.tus.ie/" target="_blank" rel="noopener">Technological University of the Shannon</a></span></h3>
+            <p>Four years of laboratory tutoring at TUS: mechanics, statistical analysis, and electrical measurements with undergraduate cohorts. Small groups, hands-on equipment, and students who learn by getting a measurement wrong first.</p><p><a href="https://www.tus.ie/" target="_blank" rel="noopener">Open link</a></p>
           </div>
-
-          <!-- Open repositories -->
-          <div class="experience-card">
-            <div class="experience-header">
-              <h3>Open teaching repositories</h3>
-              <div class="experience-company">GitHub</div>
-            </div>
-            <div class="experience-body">
-              <div class="experience-detail">
-                <div class="experience-value">
-                  <p>Some of the material and code from these experiences is public (notebooks, worked examples, and course exercises kept open so students can revisit them after the class ends).</p>
-                  <a class="repo-link" href="https://github.com/mauriciomau0" target="_blank" rel="noopener">View repositories on my GitHub →</a>
-                </div>
-              </div>
-            </div>
+        </article>
+        <article class="entry">
+          <div class="entry-date">—</div>
+          <div class="entry-body">
+            <h3>Open teaching repositories <span class="entry-org">· GitHub</span></h3>
+            <p>Some of the material and code from these experiences is public (notebooks, worked examples, and course exercises kept open so students can revisit them after the class ends). <a class="repo-link" href="https://github.com/mauriciomau0" target="_blank" rel="noopener">View repositories on my GitHub →</a></p><p>Some of the material and code from these experiences is public (notebooks, worked examples, and course exercises kept open so students can revisit them after the class ends).</p><p>The methods I rely on in the classroom:</p>
           </div>
-        </div>
-
-        <!-- Pedagogical methods -->
-        <div class="teaching-methods">
-          <h3>How I teach</h3>
-          <p>The methods I rely on in the classroom:</p>
-          <ul class="method-list">
-            <li><strong>Problem-based learning</strong>: classes start from a question worth answering.</li>
-            <li><strong>Live coding</strong>: models are built in front of the class, errors included, so the debugging is part of the lesson.</li>
-            <li><strong>Scaffolding</strong>: support is heavy at the start of a topic and deliberately withdrawn as students take it over.</li>
-            <li><strong>Active recall</strong>: students retrieve concepts rather than reread them, which is what makes them stick.</li>
-            <li><strong>Formative assessment</strong>: frequent low-stakes checks that tell me what to reteach while there is still time to reteach it.</li>
-          </ul>
-          <p style="margin-top:1.25rem">My classrooms are never homogeneous — people show up from healthcare, finance, security, engineering, all with a totally different relationship to math and code. So I start from a real problem instead of a formula. Everyone gets to walk in through their own door, and scaffolding plus feedback along the way gets them to roughly the same place, even though they started from opposite ends of the room. Underneath that is the bigger thing I keep circling back to: work used to be how you built an identity, made progress, earned your place. Now AI writes, calculates, and designs faster than any of us, and that whole arrangement stops making sense. What looks like laziness is usually someone who can't see the point anymore. What still works is a real problem worth wrestling with, a question they actually want the answer to, and someone noticing they tried. I'm not trying to out-run AI. I just want a room that people still have a reason to walk into.
-          </p>
-          <div class="background-tags">
-            <span class="background-tag">Healthcare</span>
-            <span class="background-tag">Finance</span>
-            <span class="background-tag">Security</span>
-            <span class="background-tag">Engineering</span>
-          </div>
-        </div>
+        </article>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-info">
-          <p>&copy; 2026 Mauricio Costa Cordeiro. All rights reserved.</p>
-        </div>
-        <div class="footer-links">
-          <a href="https://github.com/mauriciomau0" target="_blank" aria-label="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="footer-icon">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/mauriciocostac/" target="_blank" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="footer-icon">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-          </a>
-          <a href="mailto:mauricioccordeiro12@gmail.com" aria-label="Email">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="footer-icon">
-              <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
-            </svg>
-          </a>
-        </div>
+    <section class="block">
+      <div class="block-head">
+        <h2 class="block-title">How I teach</h2>
+        <span class="block-note">5 methods</span>
+      </div>
+      <div class="entries reveal">
+        <article class="entry">
+          <div class="entry-date">Methods</div>
+          <div class="entry-body">
+            <p>The methods I rely on in the classroom:</p>
+            <ul><li>Problem-based learning : classes start from a question worth answering.</li><li>Live coding : models are built in front of the class, errors included, so the debugging is part of the lesson.</li><li>Scaffolding : support is heavy at the start of a topic and deliberately withdrawn as students take it over.</li><li>Active recall : students retrieve concepts rather than reread them, which is what makes them stick.</li><li>Formative assessment : frequent low-stakes checks that tell me what to reteach while there is still time to reteach it.</li></ul>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="entry-date">Approach</div>
+          <div class="entry-body">
+            <p>My classrooms are never homogeneous — people show up from healthcare, finance, security, engineering, all with a totally different relationship to math and code. So I start from a real problem instead of a formula. Everyone gets to walk in through their own door, and scaffolding plus feedback along the way gets them to roughly the same place, even though they started from opposite ends of the room. Underneath that is the bigger thing I keep circling back to: work used to be how you built an identity, made progress, earned your place. Now AI writes, calculates, and designs faster than any of us, and that whole arrangement stops making sense. What looks like laziness is usually someone who can't see the point anymore. What still works is a real problem worth wrestling with, a question they actually want the answer to, and someone noticing they tried. I'm not trying to out-run AI. I just want a room that people still have a reason to walk into.</p>
+            <p class="entry-body"><b>Student backgrounds:</b> Healthcare · Finance · Security · Engineering</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <div class="foot">
+      <span>© <span data-year></span> Mauricio Costa Cordeiro</span>
+      <div class="foot-links">
+        <a href="../index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-  </footer>
+  </main>
+</div>
 
-  <script src="../js/script.js"></script>
+<script src="../js/script.js"></script>
 </body>
 </html>
