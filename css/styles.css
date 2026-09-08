@@ -260,6 +260,9 @@ a:hover{color:var(--clay-deep)}
   display:grid;grid-template-columns:128px 1fr;gap:28px;
   padding:17px 0;border-bottom:1px solid var(--line-2);align-items:start;
 }
+/* Sem data, a coluna de 128px deixaria um vao a esquerda: colapsa. */
+.entry--nodate{grid-template-columns:1fr;gap:0}
+.entry--nodate .entry-date{display:none}
 .entry:last-child{border-bottom:0}
 .entry-date{font-size:13px;font-weight:600;color:var(--muted)}
 .entry-body{display:flex;flex-direction:column;gap:4px;min-width:0}
