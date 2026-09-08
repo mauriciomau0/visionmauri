@@ -35,12 +35,14 @@
   --nav-w:208px;
   --pad-x:60px;
 
-  /* Largura de leitura. Medido no browser: o "0" da Inter é mais estreito
-     que a média das minúsculas, então 1ch rende ~1.75 caractere real.
-     --measure dá ~66 caracteres por linha (prosa corrida);
-     --measure-2 dá ~54, para texto curto dentro de grade. */
-  --measure:38ch;
-  --measure-2:46ch;
+  /* Largura de leitura, medida neste site: o "0" da Inter e ~18% mais
+     largo que a media das minusculas, entao 1ch rende ~1.18 caractere.
+     Os valores antigos (38ch/46ch) vinham de outro layout e rendiam so
+     48 caracteres por linha, deixando ~790px de coluna vazia ao lado.
+     --measure  ~70 caracteres, para prosa corrida.
+     --measure-2 ~62, para texto dentro de lista ou grade. */
+  --measure:56ch;
+  --measure-2:52ch;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
