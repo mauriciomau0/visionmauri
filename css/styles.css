@@ -543,6 +543,26 @@ a:hover{color:var(--clay-deep)}
   .cursor-dot,.cursor-ring{display:none}
 }
 
+/* ---------- figura larga ---------- */
+
+/* Diagrama denso: precisa da largura toda. Numa coluna estreita o texto
+   dele fica ilegivel. No celular rola na horizontal dentro do proprio
+   quadro, sem empurrar a pagina. */
+.figure{
+  margin-top:28px;
+  border:1px solid var(--line);border-radius:10px;
+  background:var(--surface);
+  overflow-x:auto;
+}
+.figure img{
+  display:block;width:100%;min-width:720px;height:auto;
+}
+.figure figcaption{
+  position:sticky;left:0;
+  padding:12px 16px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--muted);line-height:1.5;
+}
+
 /* ---------- typewriter ---------- */
 
 /* Mantido do site anterior: a frase troca sozinha depois do "AI for".
