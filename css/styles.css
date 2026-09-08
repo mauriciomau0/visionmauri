@@ -266,6 +266,9 @@ a:hover{color:var(--clay-deep)}
 .entry-body h3{font-size:16px;font-weight:600;line-height:1.35}
 /* nome da instituição é prova de credencial: precisa de contraste de corpo */
 .entry-org{font-weight:400;color:var(--muted)}
+/* O local vinha rotulado ("Location: Remote"); agora e so o nome, entao
+   precisa de peso proprio para nao se confundir com a descricao. */
+.entry-body p.entry-place{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:2px;line-height:1.4}
 .entry-body p{font-size:15px;color:var(--ink-3);line-height:1.65;max-width:var(--measure-2)}
 .entry-body ul{list-style:none;display:flex;flex-direction:column;gap:5px;margin-top:4px;max-width:var(--measure-2)}
 .entry-body li{
