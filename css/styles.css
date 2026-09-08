@@ -33,16 +33,15 @@
   --sans:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
 
   --nav-w:208px;
+  --content-w:700px;
   --pad-x:60px;
 
-  /* Largura de leitura, medida neste site: o "0" da Inter e ~18% mais
-     largo que a media das minusculas, entao 1ch rende ~1.18 caractere.
-     Os valores antigos (38ch/46ch) vinham de outro layout e rendiam so
-     48 caracteres por linha, deixando ~790px de coluna vazia ao lado.
-     --measure  ~70 caracteres, para prosa corrida.
-     --measure-2 ~62, para texto dentro de lista ou grade. */
-  --measure:56ch;
-  --measure-2:52ch;
+  /* Largura de leitura em px, nao em ch: com ch, aumentar o corpo do
+     texto ENCOLHIA a largura em pixels (mais largo o "0", menos "0"
+     cabem no mesmo limite), entao a coluna nunca fechava o vao.
+     645px em 17px da ~70 caracteres, dentro da faixa de 45-75. */
+  --measure:645px;
+  --measure-2:520px;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -87,12 +86,23 @@ a:hover{color:var(--clay-deep)}
 
 .shell{display:flex;min-height:100vh}
 
+/* Coluna de leitura limitada: sem teto, a prosa (70 caracteres, ~565px)
+   ficava sozinha num vao de 1232px, com metade da largura vazia ao lado.
+   Com --content-w a coluna inteira encolhe, entao o texto continua na
+   mesma medida mas a pagina deixa de parecer cortada pela metade.
+   Grades e a figura larga usam a largura toda desta coluna. */
 .content{
   flex-grow:1;min-width:0;
   margin-left:var(--nav-w);
   padding:52px var(--pad-x) 60px;
   display:flex;flex-direction:column;gap:56px;
+  max-width:calc(var(--nav-w) + var(--content-w));
 }
+
+/* A home nao entra no limite de leitura: o hero e uma ficha larga de
+   duas colunas, nao prosa. Com o teto estreito os botoes quebravam em
+   duas linhas e a pagina passava a exigir rolagem. */
+.content--wide{max-width:none}
 
 /* ---------- menu lateral ---------- */
 
@@ -398,7 +408,9 @@ a:hover{color:var(--clay-deep)}
 /* ---------- prosa ---------- */
 
 .prose{display:flex;flex-direction:column;gap:14px;max-width:var(--measure)}
-.prose p{font-size:15px;color:var(--ink-2);line-height:1.72}
+/* 17px: a mesma medida de ~70 caracteres ocupa mais largura fisica,
+   entao a coluna fica preenchida sem alongar a linha. */
+.prose p{font-size:17px;color:var(--ink-2);line-height:1.7}
 /* ".prose p" tem especificidade maior que ".prose-intro" sozinho, entao
    o tamanho da abertura era ignorado. Qualifica para empatar e vencer. */
 .prose p.prose-intro{font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.34;letter-spacing:-.015em;color:var(--ink);margin-bottom:2px}
@@ -479,6 +491,9 @@ a:hover{color:var(--clay-deep)}
   .portrait--about{height:auto}
   .intro-name{font-size:34px}
   .page-head h1{font-size:30px}
+  /* 17px numa tela de 335px rende so 37 caracteres por linha: volta a
+     16px, que da ~42 e cabe melhor na largura disponivel. */
+  .prose p{font-size:16px}
   .spec{grid-template-columns:1fr;gap:9px}
   .two-col{grid-template-columns:1fr;gap:28px}
 
