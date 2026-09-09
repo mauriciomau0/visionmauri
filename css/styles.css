@@ -386,10 +386,10 @@ a:hover{color:var(--clay-deep)}
 
 .skills-bars{
   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:20px 44px;
+  gap:26px 44px;
 }
 .skill-bar dt{
-  font-size:14px;color:var(--ink);
+  font-size:14px;font-weight:600;color:var(--ink);
   margin-bottom:7px;
 }
 .skill-bar dd{display:flex;align-items:center;gap:11px}
@@ -413,6 +413,9 @@ a:hover{color:var(--clay-deep)}
   font-size:12px;font-weight:500;color:var(--clay);
   min-width:34px;text-align:right;
 }
+/* Ferramentas do grupo, listadas abaixo da barra: 25 barras separadas
+   seriam um muro, entao a barra e o grupo e o texto detalha. */
+.skill-tools{margin-top:7px;font-size:12.5px;color:var(--muted);line-height:1.55}
 
 /* ---------- citação ---------- */
 
